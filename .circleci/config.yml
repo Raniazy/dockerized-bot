@@ -10,17 +10,17 @@ jobs:
 
       - run:
          name: Build Docker image
-         command: docker build -t raniazy/bot:$CIRCLE_SHA1 .
+         command: docker build -t raniazy/dockerized-bot:$CIRCLE_SHA1 .
 
       - run:
           name: Push to DockerHub
           command: |
             docker login -u $DOCKERHUB_LOGIN -p $DOCKERHUB_PASSWORD
-            docker push raniazy/bot:$CIRCLE_SHA1
+            docker push raniazy/dockerized-bot:$CIRCLE_SHA1
 
       - run:
           name: Deploy to Heroku
           command: |
              docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
-             docker tag raniazy/bot:$CIRCLE_SHA1 registry.heroku.com/$HEROKU_APP_NAME/web
+             docker tag raniazy/dockerized-bot:$CIRCLE_SHA1 registry.heroku.com/$HEROKU_APP_NAME/web
              docker push registry.heroku.com/$HEROKU_APP_NAME/web

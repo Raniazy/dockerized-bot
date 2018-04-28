@@ -17,8 +17,8 @@ This is a sample Facebook bot built with Botkit.
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-var env = require('node-env-file');
-env(__dirname + '/.env');
+//var env = require('node-env-file');
+//env(__dirname + '/.env');
 
 
 var Botkit = require('botkit');
