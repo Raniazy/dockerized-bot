@@ -43,3 +43,8 @@ jobs:
              docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
              docker tag raniazy/dockerized-bot:$CIRCLE_SHA1 registry.heroku.com/$HEROKU_APP_NAME/web
              docker push registry.heroku.com/$HEROKU_APP_NAME/web
+
+workflows:
+  version: 2
+  jobs:
+      - build
