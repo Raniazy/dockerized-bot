@@ -1,14 +1,13 @@
 version: 2
 jobs:
   build:
-    machine: true
+    machine: circleci/node:7.10
 
     working_directory: ~/dockerised-bot
 
     steps:
       - checkout
       - setup_remote_docker:
-          docker_layer_caching: true # default - false
 
       - restore_cache:
           keys:
